@@ -29,17 +29,17 @@ export default {
 body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  background-color: #f1f5f9;
 }
 
 main {
   width: 100%;
-  background-color: #f1f5f9;
 }
 
 .container {
   width: 100%;
   max-width: 1440px;
-  margin: 0 auto;
+  margin: 3rem auto 0;
   padding: 0 1rem;
   min-height: 100vh;
 }

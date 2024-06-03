@@ -1,8 +1,40 @@
 <script>
+import BaseBadge from '@/components/ui/BaseBadge.vue'
+
 export default {
+  components: {
+    BaseBadge
+  },
+  props: {
+    id: {
+      type: String,
+      required: true
+    },
+    firstName: {
+      type: String,
+      required: true
+    },
+    lastName: String,
+    rate: Number,
+    desc: String,
+    expertise: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
+  computed: {
+    getFullname() {
+      return `${this.firstName} ${this.lastName || ''}`
+    }
+  },
   methods: {
-    requestLink() {
-      return this.$router.push('/mentors/c1/contact')
+    requestLink(id) {
+      return this.$router.push(`/mentors/${id}/contact`)
+    },
+    detailsLink(id) {
+      return `/mentors/${id}`
     }
   }
 }
@@ -10,22 +42,30 @@ export default {
 
 <template>
   <div class="mentor-card">
-    <div class="mentor-card__name">John Doe</div>
-    <div class="mentor-card__rate">$30/hr</div>
-    <div class="mentor-card__desc">description content</div>
+    <div class="mentor-card__name">{{ getFullname }}</div>
+    <div class="mentor-card__rate">${{ rate }}/hr</div>
+    <div class="mentor-card__expertise">
+      <BaseBadge v-for="skill in expertise" :key="skill">{{ skill }}</BaseBadge>
+    </div>
+    <div class="mentor-card__desc">{{ desc }}</div>
     <div class="actions">
-      <RouterLink to="/mentors/mentor-1">Details</RouterLink>
-      <button @click="requestLink">Send Request</button>
+      <RouterLink :to="detailsLink(id)">Details</RouterLink>
+      <button @click="requestLink(id)">Send Request</button>
     </div>
   </div>
 </template>
 
 <style lang="css" scoped>
+.mentor-card,
+.mentor-card__expertise {
+  display: flex;
+}
+
 .mentor-card {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   padding: 1rem;
   border-radius: 12px;
-  display: flex;
   flex-direction: column;
   gap: 1rem;
   border: 1px solid #cbd5e1;
@@ -39,6 +79,11 @@ export default {
 
 .mentor-card__rate {
   font-size: 1.125rem;
+}
+
+.mentor-card__expertise {
+  gap: 4px;
+  flex-wrap: wrap;
 }
 
 .mentor-card__desc {

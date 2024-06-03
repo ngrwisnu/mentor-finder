@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import MentorsView from '../views/mentors/MentorsView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -7,7 +7,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      redirect: '/mentors'
+    },
+    {
+      path: '/mentors',
+      name: 'mentors',
+      component: MentorsView
     }
   ]
 })

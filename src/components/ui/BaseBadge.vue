@@ -1,7 +1,13 @@
+<script>
+export default {
+  props: {
+    text: String
+  }
+}
+</script>
+
 <template>
-  <div class="badge">
-    <slot></slot>
-  </div>
+  <div class="badge">{{ text }}</div>
 </template>
 
 <style scoped>

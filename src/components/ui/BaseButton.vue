@@ -1,5 +1,22 @@
+<script>
+export default {
+  props: {
+    asLink: Boolean,
+    linkTo: {
+      type: String,
+      required: false
+    },
+    linkText: {
+      type: String,
+      required: false
+    }
+  }
+}
+</script>
+
 <template>
-  <button @click="$emit('clickHandler')" class="button">
+  <RouterLink v-if="asLink" :to="linkTo">{{ linkText }}</RouterLink>
+  <button v-else @click="$emit('clickHandler')" class="button">
     <slot></slot>
   </button>
 </template>
@@ -17,5 +34,15 @@
 .button:hover {
   cursor: pointer;
   background-color: #c74b32;
+}
+
+a {
+  color: #d66851;
+}
+
+button,
+a {
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 </style>

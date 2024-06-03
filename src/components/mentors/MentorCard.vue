@@ -47,12 +47,13 @@ export default {
     <div class="mentor-card__name">{{ getFullname }}</div>
     <div class="mentor-card__rate">${{ rate }}/hr</div>
     <div class="mentor-card__expertise">
-      <BaseBadge v-for="skill in expertise" :key="skill">{{ skill }}</BaseBadge>
+      <BaseBadge v-for="skill in expertise" :key="skill" :text="skill" />
     </div>
     <div class="mentor-card__desc">{{ desc }}</div>
     <div class="actions">
-      <RouterLink :to="detailsLink(id)">Details</RouterLink>
+      <!-- <RouterLink :to="detailsLink(id)">Details</RouterLink> -->
       <!-- <button @click="">Send Request</button> -->
+      <BaseButton :linkTo="detailsLink(id)" linkText="Details" asLink />
       <BaseButton @click-handler="requestLink(id)">Send Request</BaseButton>
     </div>
   </div>

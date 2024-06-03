@@ -1,9 +1,11 @@
 <script>
 import BaseBadge from '@/components/ui/BaseBadge.vue'
+import BaseButton from '../ui/BaseButton.vue'
 
 export default {
   components: {
-    BaseBadge
+    BaseBadge,
+    BaseButton
   },
   props: {
     id: {
@@ -50,7 +52,8 @@ export default {
     <div class="mentor-card__desc">{{ desc }}</div>
     <div class="actions">
       <RouterLink :to="detailsLink(id)">Details</RouterLink>
-      <button @click="requestLink(id)">Send Request</button>
+      <!-- <button @click="">Send Request</button> -->
+      <BaseButton @click-handler="requestLink(id)">Send Request</BaseButton>
     </div>
   </div>
 </template>
@@ -88,11 +91,13 @@ export default {
 
 .mentor-card__desc {
   font-size: 1rem;
+  color: #64748b;
 }
 
 .actions {
   display: flex;
   gap: 1rem;
   justify-content: end;
+  align-items: center;
 }
 </style>

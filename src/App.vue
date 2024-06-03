@@ -13,7 +13,9 @@ export default {
 <template>
   <TheHeader />
   <main>
-    <RouterView />
+    <div class="container">
+      <RouterView />
+    </div>
   </main>
 </template>
 
@@ -26,13 +28,24 @@ export default {
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 main {
-  width: 100vw;
+  width: 100%;
+  background-color: #f1f5f9;
+}
+
+.container {
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 1rem;
+  min-height: 100vh;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
 </style>

@@ -1,38 +1,36 @@
 <script>
-import { RouterLink } from 'vue-router'
+// import { RouterLink } from 'vue-router'
 
 export default {
-  components: {
-    RouterLink
-  }
+  components: {}
 }
 </script>
 
 <template>
   <header>
-    <div class="logo"><RouterLink to="/">Mentors Finders</RouterLink></div>
-    <nav>
-      <ul>
-        <li><RouterLink to="/mentors">Mentors</RouterLink></li>
-        <li><RouterLink to="/requests">Requests</RouterLink></li>
-      </ul>
-    </nav>
+    <div class="wrapper">
+      <div class="logo"><RouterLink to="/">Mentors Finders</RouterLink></div>
+      <nav>
+        <ul>
+          <li><RouterLink to="/mentors">Mentors</RouterLink></li>
+          <li><RouterLink to="/requests">Requests</RouterLink></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 </template>
 
 <style scoped>
 header {
-  width: 100vw;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
 }
 
-header a {
-  color: black;
-  text-decoration: none;
+header .wrapper {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
 }
 
 header .logo {

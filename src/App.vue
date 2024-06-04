@@ -20,6 +20,8 @@ export default {
 </template>
 
 <style>
+@import './assets/variables.css';
+
 * {
   margin: 0;
   padding: 0;

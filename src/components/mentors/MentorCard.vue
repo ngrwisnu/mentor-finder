@@ -54,7 +54,7 @@ export default {
       <!-- <RouterLink :to="detailsLink(id)">Details</RouterLink> -->
       <!-- <button @click="">Send Request</button> -->
       <BaseButton :linkTo="detailsLink(id)" linkText="Details" asLink />
-      <BaseButton @click-handler="requestLink(id)">Send Request</BaseButton>
+      <BaseButton @click-handler="requestLink(id)" type="primary">Send Request</BaseButton>
     </div>
   </div>
 </template>

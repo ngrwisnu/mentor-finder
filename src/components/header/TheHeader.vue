@@ -1,15 +1,20 @@
-<script>
-// import { RouterLink } from 'vue-router'
-
+<script lang="ts">
 export default {
-  components: {}
+  methods: {
+    menuHandler() {
+      console.log(this.$route)
+    }
+  },
+  updated() {
+    this.menuHandler()
+  }
 }
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <div class="logo"><RouterLink to="/">Mentors Finders</RouterLink></div>
+      <div class="logo"><RouterLink to="/">Mentors Finder</RouterLink></div>
       <nav>
         <ul>
           <li><RouterLink to="/mentors">Mentors</RouterLink></li>
@@ -49,5 +54,9 @@ header nav ul li {
   list-style: none;
   font-size: 1rem;
   font-weight: 400;
+}
+
+.active {
+  color: #d66851;
 }
 </style>

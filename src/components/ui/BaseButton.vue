@@ -26,14 +26,15 @@ export default {
   border: none;
   border-radius: 6px;
   height: 32px;
-  background-color: #d66851;
+  background: linear-gradient(to right, #f13611, #f57119);
   color: white;
   padding: 6px 12px;
+  transition: all 150ms ease-in;
 }
 
 .button:hover {
   cursor: pointer;
-  background-color: #c74b32;
+  transform: scale(1.1);
 }
 
 a {

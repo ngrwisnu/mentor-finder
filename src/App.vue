@@ -12,6 +12,7 @@ export default {
 
 <template>
   <TheHeader />
+  <RouterLink to="/mentors/register">Register as Mentor</RouterLink>
   <main>
     <div class="container">
       <RouterView />

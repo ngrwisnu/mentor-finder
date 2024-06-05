@@ -12,7 +12,6 @@ export default {
 
 <template>
   <TheHeader />
-  <RouterLink to="/mentors/register">Register as Mentor</RouterLink>
   <main>
     <div class="container">
       <RouterView />
@@ -50,5 +49,11 @@ main {
 a {
   color: black;
   text-decoration: none;
+}
+
+input,
+textarea {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 </style>

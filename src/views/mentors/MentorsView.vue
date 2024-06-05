@@ -1,13 +1,20 @@
 <script>
 import MentorCard from '@/components/mentors/MentorCard.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
+import { useMentorStore } from '@/stores/mentor'
+import { mapState } from 'pinia'
 
 export default {
-  components: {
-    MentorCard
+  computed: {
+    ...mapState(useMentorStore, ['getMentors'])
   },
-  data() {
-    return {
-      mentors: [1]
+  components: {
+    MentorCard,
+    BaseButton
+  },
+  methods: {
+    clickHandler() {
+      return this.$router.push('/register/mentors')
     }
   }
 }
@@ -15,32 +22,42 @@ export default {
 
 <template>
   <h1>Mentors</h1>
-  <p v-if="!mentors.length">No mentors found!</p>
+  <div class="actions">
+    <BaseButton @click-handler="clickHandler" type="outline">Register as Mentor</BaseButton>
+  </div>
+  <p v-if="!getMentors.length">No mentors found!</p>
   <div v-else class="mentors-list">
     <MentorCard
-      id="mentor-1"
-      first-name="John"
-      last-name="Doe"
-      :rate="30"
-      desc="description content"
-      :expertise="['Web Dev', 'Vue']"
-    />
-    <MentorCard
-      id="mentor-2"
-      first-name="John"
-      :rate="30"
-      desc="description content"
-      :expertise="['Web Dev', 'Vue']"
+      v-for="mentor in getMentors"
+      :key="mentor.id"
+      :id="mentor.id"
+      :first-name="mentor.firstName"
+      :last-name="mentor.lastName"
+      :rate="mentor.rate"
+      :desc="mentor.desc"
+      :expertise="mentor.expertise"
     />
   </div>
 </template>
 
-<style>
+<style scoped>
 .mentors-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+h1,
+.actions {
+  margin-bottom: 1.5rem;
 }
 
 @media screen and (min-width: 768px) {

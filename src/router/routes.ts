@@ -20,7 +20,7 @@ export const routes = [
     component: MentorDetailsView
   },
   {
-    path: '/mentors/register',
+    path: '/register/mentors',
     name: 'mentor-register',
     component: MentorsRegisterView
   }

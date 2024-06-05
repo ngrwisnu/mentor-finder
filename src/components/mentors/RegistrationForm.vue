@@ -1,5 +1,7 @@
 <script>
 import BaseButton from '../ui/BaseButton.vue'
+import { useMentorStore } from '@/stores/mentor'
+import { mapActions } from 'pinia'
 
 export default {
   components: {
@@ -15,8 +17,10 @@ export default {
     }
   },
   methods: {
+    ...mapActions(useMentorStore, ['addMentor']),
     submitHandler() {
       const formData = {
+        id: `mentor-${+new Date()}`,
         firstName: this.firstName,
         lastName: this.lastName,
         rate: this.rate,
@@ -24,8 +28,10 @@ export default {
         desc: this.desc
       }
 
-      console.log(formData)
+      this.addMentor(formData)
+
       this.clearForm()
+      this.$router.push('/mentors')
     },
     clearForm() {
       this.firstName = ''

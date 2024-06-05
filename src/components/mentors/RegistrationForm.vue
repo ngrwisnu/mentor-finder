@@ -48,7 +48,7 @@ export default {
   <form @submit.prevent="submitHandler">
     <div class="form-input">
       <label class="label" for="firstName">First name</label>
-      <input type="text" id="firstName" placeholder="ex: John" v-model.trim="firstName" />
+      <input type="text" id="firstName" placeholder="ex: John" v-model.trim="firstName" required />
     </div>
     <div class="form-input">
       <label class="label" for="lastName">Last name</label>
@@ -56,7 +56,7 @@ export default {
     </div>
     <div class="form-input">
       <label class="label" for="rate">Hourly rate</label>
-      <input type="number" id="rate" placeholder="ex: 30" v-model.number="rate" />
+      <input type="number" id="rate" placeholder="ex: 30" v-model.number="rate" required />
     </div>
     <div>
       <div class="label">Select the expertise</div>

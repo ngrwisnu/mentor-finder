@@ -96,13 +96,8 @@ export default {
 </template>
 
 <style scoped>
-form,
-.form-item.checkbox,
 .actions {
   display: flex;
-}
-
-.actions {
   justify-content: end;
 }
 </style>

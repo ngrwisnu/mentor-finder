@@ -3,6 +3,7 @@ import MentorDetailsView from '../views/mentors/MentorDetailsView.vue'
 import MentorsContactView from '../views/mentors/MentorsContactView.vue'
 import MentorsRegisterView from '../views/mentors/MentorsRegisterView.vue'
 import RequestsView from '../views/requests/RequestsView.vue'
+import LoginView from '../views/auth/LoginView.vue'
 
 export const routes = [
   {
@@ -31,6 +32,11 @@ export const routes = [
     path: '/requests',
     name: 'requests',
     component: RequestsView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
   },
   {
     path: '/register/mentors',

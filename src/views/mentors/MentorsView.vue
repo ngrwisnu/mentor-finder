@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     clickHandler() {
-      return this.$router.push('/register/mentors')
+      return this.$router.push('/login')
     }
   }
 }
@@ -23,7 +23,8 @@ export default {
 <template>
   <h1>Mentors</h1>
   <div class="actions">
-    <BaseButton @click-handler="clickHandler" type="outline">Register as Mentor</BaseButton>
+    <BaseButton linkTo="/register/mentors" linkText="Register as Mentor" asLink />
+    <BaseButton @click-handler="clickHandler" type="outline">Login</BaseButton>
   </div>
   <p v-if="!getMentors.length">No mentors found!</p>
   <div v-else class="mentors-list">
@@ -53,6 +54,7 @@ export default {
   display: flex;
   justify-content: end;
   align-items: center;
+  gap: 1rem;
 }
 
 h1,

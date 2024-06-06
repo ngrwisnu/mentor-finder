@@ -12,7 +12,9 @@
   width: 100%;
 }
 
-.form-item.checkbox {
+.form-item.checkbox,
+.form-item.radio {
+  display: flex;
   flex-direction: row;
 }
 </style>

@@ -2,14 +2,8 @@
 export default {
   props: {
     asLink: Boolean,
-    linkTo: {
-      type: String,
-      required: false
-    },
-    linkText: {
-      type: String,
-      required: false
-    },
+    linkTo: String,
+    linkText: String,
     type: String
   },
   data() {
@@ -68,7 +62,7 @@ export default {
 }
 
 a {
-  color: #d66851;
+  color: var(--black-700);
 }
 
 button,

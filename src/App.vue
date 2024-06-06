@@ -51,9 +51,17 @@ a {
   text-decoration: none;
 }
 
-input,
+input:not(input[type='checkbox']),
 textarea {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  width: 100%;
+  border-radius: 4px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-200);
+}
+
+input[type='checkbox'] {
+  margin-right: 4px;
 }
 </style>

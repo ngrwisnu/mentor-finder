@@ -29,5 +29,7 @@ section {
 
 .content {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>

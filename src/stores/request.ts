@@ -12,7 +12,7 @@ export const useRequestStore = defineStore('request', {
   },
   getters: {
     getRequests: (state) => {
-      return state.requests
+      return state.requests.sort((a, b) => b.created_at - a.created_at)
     }
   },
   actions: {
@@ -27,4 +27,5 @@ export interface RequestInfo {
   mentor_id: string
   email: string
   message: string
+  created_at: number
 }

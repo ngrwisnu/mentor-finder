@@ -90,7 +90,7 @@ export default {
 
 .mentor-card__desc {
   font-size: 1rem;
-  color: #64748b;
+  color: var(--text-body);
 }
 
 .actions {

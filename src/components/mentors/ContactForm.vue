@@ -1,7 +1,8 @@
 <script>
-import { mapState } from 'pinia'
+import { mapActions, mapState } from 'pinia'
 import BaseButton from '../ui/BaseButton.vue'
 import { useMentorStore } from '@/stores/mentor'
+import { useRequestStore } from '@/stores/request'
 
 export default {
   props: ['id'],
@@ -15,14 +16,17 @@ export default {
     }
   },
   methods: {
+    ...mapActions(useRequestStore, ['addRequest']),
     submitHandler() {
       const formData = {
+        id: `request-${+new Date()}`,
         mentor_id: this.id,
         email: this.email,
         message: this.msg
       }
 
-      console.log(formData)
+      this.addRequest(formData)
+
       this.$router.push('/requests')
     }
   },

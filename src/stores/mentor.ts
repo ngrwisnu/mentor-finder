@@ -1,3 +1,4 @@
+import { getDataFromStorage, setDataToStorage } from '@/helpers'
 import { defineStore } from 'pinia'
 
 interface State {
@@ -7,29 +8,31 @@ interface State {
 export const useMentorStore = defineStore('mentor', {
   state: (): State => {
     return {
-      mentors: [
-        {
-          id: 'mentor-1',
-          firstName: 'John',
-          lastName: 'Doe',
-          rate: 30,
-          expertise: ['Front-End', 'UI/UX'],
-          desc: 'short description'
-        },
-        {
-          id: 'mentor-2',
-          firstName: 'Denise',
-          lastName: 'Doe',
-          rate: 25,
-          expertise: ['Back-End'],
-          desc: 'short description'
-        }
-      ]
+      mentors: []
     }
   },
   actions: {
     addMentor(payload: MentorInfo) {
-      this.mentors.push(payload)
+      const mentors = getDataFromStorage('mentors')
+
+      if (mentors) {
+        mentors.push(payload)
+        setDataToStorage('mentors', JSON.stringify(mentors))
+      } else {
+        const newMentor = []
+
+        newMentor.push(payload)
+        setDataToStorage('mentors', JSON.stringify(newMentor))
+      }
+    },
+    setMentors() {
+      const mentors = getDataFromStorage('mentors')
+
+      if (!mentors) {
+        this.mentors = []
+      } else {
+        this.mentors = mentors
+      }
     }
   },
   getters: {

@@ -2,7 +2,7 @@
 import MentorCard from '@/components/mentors/MentorCard.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import { useMentorStore } from '@/stores/mentor'
-import { mapState } from 'pinia'
+import { mapActions, mapState } from 'pinia'
 
 export default {
   computed: {
@@ -13,9 +13,13 @@ export default {
     BaseButton
   },
   methods: {
+    ...mapActions(useMentorStore, ['setMentors']),
     clickHandler() {
       return this.$router.push('/login')
     }
+  },
+  created() {
+    this.setMentors()
   }
 }
 </script>

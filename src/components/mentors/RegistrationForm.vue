@@ -67,15 +67,15 @@ export default {
     <FormItem>
       <FormLabel>Select the expertise</FormLabel>
       <FormItem :class="['checkbox']">
-        <input type="checkbox" id="frontend" value="frontend" v-model="expertise" />
+        <input type="checkbox" id="frontend" value="Front-End" v-model="expertise" />
         <FormLabel :class="['checkbox']" label-for="frontend">Front-End</FormLabel>
       </FormItem>
       <FormItem :class="['checkbox']">
-        <input type="checkbox" id="backend" value="backend" v-model="expertise" />
+        <input type="checkbox" id="backend" value="Back-End" v-model="expertise" />
         <FormLabel :class="['checkbox']" label-for="backend">Back-End</FormLabel>
       </FormItem>
       <FormItem :class="['checkbox']">
-        <input type="checkbox" id="uiux" value="uiux" v-model="expertise" />
+        <input type="checkbox" id="uiux" value="UI/UX" v-model="expertise" />
         <FormLabel :class="['checkbox']" label-for="uiux">UI/UX</FormLabel>
       </FormItem>
     </FormItem>

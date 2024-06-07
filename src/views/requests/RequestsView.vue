@@ -18,9 +18,11 @@ export default {
 
       return `${mentor.firstName} ${mentor.lastName || ''}`
     },
-    ...mapActions(useRequestStore, ['setRequests'])
+    ...mapActions(useRequestStore, ['setRequests']),
+    ...mapActions(useMentorStore, ['setMentors'])
   },
   created() {
+    this.setMentors()
     this.setRequests()
   }
 }

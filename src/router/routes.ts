@@ -4,6 +4,7 @@ import MentorsContactView from '../views/mentors/MentorsContactView.vue'
 import MentorsRegisterView from '../views/mentors/MentorsRegisterView.vue'
 import RequestsView from '../views/requests/RequestsView.vue'
 import LoginView from '../views/auth/LoginView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 export const routes = [
   {
@@ -42,5 +43,10 @@ export const routes = [
     path: '/register/mentors',
     name: 'mentor-register',
     component: MentorsRegisterView
+  },
+  {
+    path: '/:notFound+',
+    name: 'not-found',
+    component: NotFoundView
   }
 ]

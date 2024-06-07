@@ -31,7 +31,6 @@ export default {
         message: this.msg,
         created_at: new Date().getTime()
       }
-      console.log(formData)
 
       this.addRequest(formData)
 

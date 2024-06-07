@@ -2,7 +2,7 @@
 import RequestCard from '@/components/requests/RequestCard.vue'
 import { useMentorStore } from '@/stores/mentor'
 import { useRequestStore } from '@/stores/request'
-import { mapState } from 'pinia'
+import { mapActions, mapState } from 'pinia'
 
 export default {
   components: {
@@ -17,7 +17,11 @@ export default {
       const mentor = this.getMentors.find((item) => item.id === id)
 
       return `${mentor.firstName} ${mentor.lastName || ''}`
-    }
+    },
+    ...mapActions(useRequestStore, ['setRequests'])
+  },
+  created() {
+    this.setRequests()
   }
 }
 </script>

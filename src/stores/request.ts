@@ -1,3 +1,4 @@
+import { getDataFromStorage, setDataToStorage } from '@/helpers'
 import { defineStore } from 'pinia'
 
 interface State {
@@ -17,7 +18,26 @@ export const useRequestStore = defineStore('request', {
   },
   actions: {
     addRequest(payload: RequestInfo) {
-      this.requests.push(payload)
+      const requests = getDataFromStorage('requests')
+
+      if (requests) {
+        requests.push(payload)
+        setDataToStorage('requests', JSON.stringify(requests))
+      } else {
+        const newRequest = []
+
+        newRequest.push(payload)
+        setDataToStorage('requests', JSON.stringify(newRequest))
+      }
+    },
+    setRequests() {
+      const requests = getDataFromStorage('requests')
+
+      if (!requests) {
+        this.requests = []
+      } else {
+        this.requests = requests
+      }
     }
   }
 })

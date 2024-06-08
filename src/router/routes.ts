@@ -14,20 +14,25 @@ export const routes = [
   },
   {
     path: '/mentors',
-    name: 'mentors',
-    component: MentorsView
-  },
-  {
-    path: '/mentors/:id',
-    props: true,
-    name: 'mentor-details',
-    component: MentorDetailsView
-  },
-  {
-    path: '/mentors/:id/contact',
-    props: true,
-    name: 'mentor-contact',
-    component: MentorsContactView
+    children: [
+      {
+        path: '',
+        name: 'mentors',
+        component: MentorsView
+      },
+      {
+        path: '/mentors/:id',
+        props: true,
+        name: 'mentor-details',
+        component: MentorDetailsView
+      },
+      {
+        path: '/mentors/:id/contact',
+        props: true,
+        name: 'mentor-contact',
+        component: MentorsContactView
+      }
+    ]
   },
   {
     path: '/requests',

@@ -26,6 +26,7 @@ export default {
 
 <template>
   <h1>Mentors</h1>
+  <RouterView />
   <div class="actions">
     <BaseButton linkTo="/register/mentors" linkText="Register as Mentor" asLink />
     <BaseButton @click-handler="clickHandler" type="outline">Login</BaseButton>

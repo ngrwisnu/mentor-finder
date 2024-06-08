@@ -12,7 +12,7 @@ export default {
 
 <template>
   <AuthLayout>
-    <h2>Login</h2>
+    <h1>Login</h1>
     <template #form-card>
       <LoginForm />
     </template>

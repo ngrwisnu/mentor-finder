@@ -11,7 +11,7 @@ export default {
 
 <template>
   <section>
-    <h2>Contact the Mentor</h2>
+    <h1>Contact the Mentor</h1>
     <div class="content">
       <ContactForm :id="id" />
     </div>

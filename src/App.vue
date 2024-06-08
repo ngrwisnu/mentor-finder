@@ -38,6 +38,10 @@ main {
   width: 100%;
 }
 
+.router-link-active {
+  color: #f04a28;
+}
+
 .container {
   width: 100%;
   max-width: 1440px;

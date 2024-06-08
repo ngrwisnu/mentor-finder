@@ -12,7 +12,7 @@ export default {
 
 <template>
   <AuthLayout>
-    <h2>Register as Mentor</h2>
+    <h1>Register as Mentor</h1>
     <template #form-card>
       <RegistrationForm />
     </template>
